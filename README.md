@@ -1,4 +1,4 @@
-# Assignment 4: Performance Assignment
+# Performance Assignment
 ## Code Optimization Assignment
 
 ## Introduction
@@ -125,4 +125,4 @@ $ tar -cvzf perflab-setup.tar.gz perflab-setup/
 
 This will allow you to modify all the files and easily turn them all in as a single package. And since Tyson won't allow me to accept new Makefiles on Turnin, this is a way to get the Makefile should you modify it.
 
-You need to be able to explain *why* your code modifications improve the running time for the program and explain what would happen with minor modifications. Again, you must be able to explain *why* you got the performance you did, so you should take notes for why you made each modification so you have a reference in case I ask you to come explain your code to me during a grading meeting.
+You need to be able to explain *why* your code modifications improve the running time for the program and explain what would happen with minor modifications. Again, you must be able to explain *why* you got the performance you did, so you should take notes for why you made each modification so you have a reference when you are asked to explain this as part of the grading quiz/meeting. 
