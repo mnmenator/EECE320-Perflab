@@ -1,7 +1,7 @@
 # Assignment 4: Performance Assignment
-##Code Optimization Assignment
+## Code Optimization Assignment
 
-##Introduction
+## Introduction
 This assignment deals with optimizing memory intensive code. Image processing offers many examples of functions that can benefit from optimization. In this lab, you’ll be improving the overall performance of an “image processing” application by a factor of about 25 – if you can increase the speed by a factor of 50, you’ll get extra credit.
 
 The application you’ll be modifying reads in an “image” (a picture) and a “filter”. An image is represented as a three-dimensional array, described in *cs1300bmp.h*. Each pixel is represented as a combination of (red, green, blue) values – when coded in the BMP picture format, the individual (R,G,B) values can taken on the values 0...255, but the *cs1300bmp.h* code is designed to handle larger pixel values. The code in *cs1300bmp.cpp* provides routines for reading and writing images in the BMP format. You are free to modify the format or the layout of the data structures in that code.
@@ -99,13 +99,13 @@ This would result in an average of 2851 cycles per second. Scoring is based on t
 
 https://csciperfproject.csuchico.edu
 
-You might need to use the campus VPN to connect to the server. I'm currently in the process of making it publicly available and will announce on Piazza once that's the case.
+You will need to use the campus VPN to connect to the server. 
 
 The provided Makefile compiles your program; you may need to modify it to change compiler options or the like. You can also compile your program ”by hand”, but you should remember what you did. We assume you are compiling your program on your virtual machine. The Makefile also provides a *make judge* rule that runs the test images and filters, which you will want to comment out prior to using it on the csciperfproject server or it will take significantly longer to start running. Lastly, it provides a *make clean* rule to delete any temporary files or images. I would recommend commenting out the judge rule if you’ve modified the Makefile and want to use the new Makefile to run your code as the *make judge* rule will run as part of the compilation process.
 
 Your measured time needs to include any active processing you do to the image after it is read in and before it is written out. You’re free to go “whole hog” on any optimization that might work, **as long as it works with all the test images and filters included in the assignment.** Your modified code **does not** need to handle any filters or images not included in the evaluation suite. This means you can go ahead and e.g change the matrix layout in the BMP image library, replace the Filter library, etc. However, you’d be well advised to make certain those changes are important and effective before you sink a lot of time. The most “extreme” solution is to use optimized functions for every filter. The *perf* machines also four CPU’s or cores and you could use the OpenMP language extensions to try to use all the cores. Some students have used these methods in the past, but you’re well advised to go for the easy low-hanging fruit before tackling the most aggressive optimization.
 
-##Logistics
+## Logistics
 The only “hand-in” will be electronic. Any clarifications and revisions to the assignment will be posted on the Piazza discussion board.
 
 Different computers will run this code at different speeds (even measured in “cycles per second”). In order to have a level playing field, everyone must use the *csciperfproject* system to time their projects. The web portal interface will insure that you are the only person running your code on the *perf* machine at the time insuring a consistent result.
@@ -116,7 +116,7 @@ Download the code from the repository right away and make certain certain you ca
 
 You should also make use of *git* version control so you can roll back should the photos stop filtering correctly and so you can commit every change and your justification for why it makes your code run faster, which’ll be helpful should you need to explain your code to me.
 
-##Grading
+## Grading
 You should upload your files to Turnin by the due date as a tar.gz file. You can make this file by being in the parent directory of the perflab-setup files your code is in and doing the following:
 
 <pre>
