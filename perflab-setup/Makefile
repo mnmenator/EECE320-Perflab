@@ -17,8 +17,8 @@ IMAGES = boats.bmp blocks-small.bmp
 TRIALS = 1 2 3 4
 
 judge: filter
-##	-./Judge -p ./filter -i boats.bmp
-##	-./Judge -p ./filter -i blocks-small.bmp
+	-./Judge -p ./filter -i boats.bmp
+	-./Judge -p ./filter -i blocks-small.bmp
 
 clean:
 	-rm *.o
