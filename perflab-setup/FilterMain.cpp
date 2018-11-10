@@ -162,7 +162,10 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
 	        }
          }
         
-        output -> color[plane][row][col] = output -> color[plane][row][col] / d;
+        if(d == -1)
+          output -> color[plane][row][col] = -(output -> color[plane][row][col]);
+        else if(d != 1)
+          output -> color[plane][row][col] = output -> color[plane][row][col] / d;
 
         if ( output -> color[plane][row][col]  < 0 ) {
        	  output -> color[plane][row][col] = 0;
