@@ -148,6 +148,7 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
   output -> height = input -> height;
   
   int f = filter->getSize();
+  int d = filter->getDivisor();
 
   for(int col = 1; col < (input -> width) - 1; col = col + 1) {
     for(int row = 1; row < (input -> height) - 1 ; row = row + 1) {
@@ -159,9 +160,9 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
             + (input -> color[plane][row + i - 1][col + j - 1] 
             * filter -> get(i, j) );
 	        }
-         }	
-        output -> color[plane][row][col] = 	
-	      output -> color[plane][row][col] / filter -> getDivisor();
+         }
+        
+        output -> color[plane][row][col] = output -> color[plane][row][col] / d;
 
         if ( output -> color[plane][row][col]  < 0 ) {
        	  output -> color[plane][row][col] = 0;
