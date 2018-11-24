@@ -154,8 +154,8 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
     for(int row = 1; row < (input -> height) - 1 ; row = row + 1) {
       for(int col = 1; col < (input -> width) - 1; col = col + 1) {
         val = 0;
-     	  for (int j = 0; j < 3; j++) {
-          for (int i = 0; i < 3; i++) {	
+     	  for (int i = 0; i < 3; i++) {
+          for (int j = 0; j < 3; j++) {	
             val = val
             + (input -> color[plane][row + i - 1][col + j - 1] 
             * filter -> get(i, j) );
