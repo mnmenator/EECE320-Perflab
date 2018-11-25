@@ -12,6 +12,7 @@ class Filter {
 public:
   Filter(int _dim);
   int get(int r, int c);
+  int get(int v);
   void set(int r, int c, int value);
 
   int getDivisor();

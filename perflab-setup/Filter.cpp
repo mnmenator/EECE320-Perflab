@@ -13,6 +13,11 @@ int Filter::get(int r, int c)
   return data[ r * dim + c ];
 }
 
+int Filter::get(int v)
+{
+  return data[ v ];
+}
+
 void Filter::set(int r, int c, int value)
 {
   data[ r * dim + c ] = value;
