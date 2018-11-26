@@ -151,8 +151,11 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
   int height = output -> height;
   int width = output -> width;
 
+  #pragma omp parallel for
   for(int plane = 0; plane < 3; plane++) {
+    #pragma omp parallel for
     for(int row = 1; row < height - 1; row++) {
+      #pragma omp parallel for
       for(int col = 1; col < width - 1; col++) {
         output -> color[plane][row][col] = 
         (input -> color[plane][row - 1][col - 1] * filter -> get(0)
