@@ -155,20 +155,22 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
   for(int plane = 0; plane < 3; plane++) {
     #pragma omp parallel for
     for(int row = 1; row < height - 1; row++) {
+      int r1 = row - 1;
+      int r2 = row + 1;          
       #pragma omp parallel for
       for(int col = 1; col < width - 1; col++) {
         int c1 = col - 1;
         int c2 = col + 1;
         output -> color[plane][row][col] = 
-        (input -> color[plane][row - 1][c1] * filter -> get(0)
-        + input -> color[plane][row - 1][col] * filter -> get(1)
-        + input -> color[plane][row - 1][c2] * filter -> get(2)
+        (input -> color[plane][r1][c1] * filter -> get(0)
+        + input -> color[plane][r1][col] * filter -> get(1)
+        + input -> color[plane][r1][c2] * filter -> get(2)
         + input -> color[plane][row][c1] * filter -> get(3)
         + input -> color[plane][row][col] * filter -> get(4)
         + input -> color[plane][row][c2] * filter -> get(5)
-        + input -> color[plane][row + 1][c1] * filter -> get(6)
-        + input -> color[plane][row + 1][col] * filter -> get(7)
-        + input -> color[plane][row + 1][c2] * filter -> get(8));
+        + input -> color[plane][r2][c1] * filter -> get(6)
+        + input -> color[plane][r2][col] * filter -> get(7)
+        + input -> color[plane][r2][c2] * filter -> get(8));
         
         if(d != 1)
           output -> color[plane][row][col] = output -> color[plane][row][col] / d;
