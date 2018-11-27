@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <fstream>
 #include "Filter.h"
+#include <omp.h>
 
 using namespace std;
 
@@ -151,13 +152,11 @@ applyFilter(struct Filter *filter, cs1300bmp *input, cs1300bmp *output)
   int height = output -> height;
   int width = output -> width;
 
-  #pragma omp parallel for
   for(int plane = 0; plane < 3; plane++) {
     #pragma omp parallel for
     for(int row = 1; row < height - 1; row++) {
       int r1 = row - 1;
       int r2 = row + 1;          
-      #pragma omp parallel for
       for(int col = 1; col < width - 1; col++) {
         int c1 = col - 1;
         int c2 = col + 1;
